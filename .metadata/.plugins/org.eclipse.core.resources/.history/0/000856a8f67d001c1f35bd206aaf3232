@@ -1,0 +1,15 @@
+package entities;
+
+public class Warrior extends CombatClass {
+	
+	  public Warrior(String name, char characterGender, Weapons weapon) {
+	        super(CombatClass.MAX_HEALTH, 20, 15, name, characterGender, weapon /*validateWeapon(weapon)*/);
+	    }
+
+//	    public static Weapons validateWeapon(Weapons weapon) {
+//	        if (weapon != Weapons.HAMMER && weapon != Weapons.AXE) {
+//	            throw new IllegalArgumentException("Um guerreiro só pode usar martelo ou machado!");
+//	        }
+//	        return weapon;
+//	    }
+}

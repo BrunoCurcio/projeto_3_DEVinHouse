@@ -1,0 +1,27 @@
+package player.entities;
+
+public enum Motivations {
+	VENGEANCE(1, "Vingança"),
+	GLORY (2, "Glória");
+	
+	private int id;
+	private String motivation;
+	
+	Motivations (int id, String motivation) {
+		this.id = id;
+		this.motivation = motivation;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getMotivation() {
+		return motivation;
+	}
+
+	public static String getMotivation(int id) {
+        return  Motivations.values()[id].getMotivation();
+    }
+	
+}

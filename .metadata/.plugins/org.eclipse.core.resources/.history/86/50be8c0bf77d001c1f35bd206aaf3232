@@ -1,0 +1,16 @@
+package entities;
+
+public class Knight extends CombatClass{
+
+	public Knight(String name, String characterGender, Weapons weapon) {
+		
+        super(CombatClass.MAX_HEALTH, 15, 20, name, characterGender, weapon /*validateWeapon(weapon)*/);
+    }
+
+//	public static Weapons validateWeapon(Weapons weapon) {
+//        if (weapon != Weapons.SWORD && weapon != Weapons.CLUB) {
+//            throw new IllegalArgumentException("Um cavaleiro só pode usar espada ou clava!");
+//        }
+//        return weapon;
+//    }
+}

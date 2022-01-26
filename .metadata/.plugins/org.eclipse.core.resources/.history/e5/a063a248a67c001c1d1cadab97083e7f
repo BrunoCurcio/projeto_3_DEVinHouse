@@ -1,0 +1,17 @@
+package entities;
+
+public enum DifficultyLevel {
+	EASY(0.2),
+	NORMAL(1),
+	HARD(0.1);
+	
+	private double decreasedDamage;
+	
+	private DifficultyLevel(double decreasedDamage) {
+		this.decreasedDamage = decreasedDamage;
+	}
+	
+	public double getDecreasedDamage() {
+		return this.decreasedDamage;
+	}
+}

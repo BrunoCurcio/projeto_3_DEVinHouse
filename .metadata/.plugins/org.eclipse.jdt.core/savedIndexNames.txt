@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\Bruno\Desktop\Desenvolvimento\Projetos\devinhouse\modulo-2\projeto-1\batalha-final\.metadata\.plugins\org.eclipse.jdt.core
+2146521926.index
+1210658807.index

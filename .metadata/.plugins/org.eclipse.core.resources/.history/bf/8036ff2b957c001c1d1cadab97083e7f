@@ -1,0 +1,89 @@
+package entities;
+
+public abstract class CombatClass extends Character implements Attacker {
+
+	private String name;
+	private char gender;
+	private Motivations motivation;
+	private Weapons weapon;
+	public static final int MAX_HEALTH = 200;
+	
+	public CombatClass(int healthPoints, int atkPoints, int defPoints, String name, char characterGender, Weapons weapon) {
+		
+		super(healthPoints, atkPoints, defPoints);
+		this.name = validateName(name);
+		this.gender = validateGender(characterGender);
+		this.motivation = null;
+		this.weapon = weapon;
+	}
+		
+		 private String validateName(String name) {
+		    if (name.isBlank() || name.isEmpty()) {
+		      return "O nome não pode ser deixado em branco!";
+		    } else {
+		      return name;
+		    }
+		  }
+
+		  private char validateGender(char characterGender) {
+		    if (!(characterGender == 'M') && !(characterGender =='F')) {
+		      throw new IllegalArgumentException("Você deve definir o gênero como 'M' ou 'F'!");
+		    } else {
+		      return characterGender;
+		    }	
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public char getGender() {
+		return gender;
+	}
+
+	public Motivations getMotivation() {
+		return motivation;
+	}
+
+	public void setMotivation(Motivations motivation) {
+		this.motivation = motivation;
+	}
+
+	public Weapons getWeapon() {
+		return weapon;
+	}
+
+	public void setWeapon(Weapons weapon) {
+		this.weapon = weapon;
+	}
+
+	public static int getMaxHealth() {
+		return MAX_HEALTH;
+	}
+
+	@Override
+	public void attack(Character defender) {
+		int diceResult = this.D20();
+		int damageDealt;
+		
+		if (diceResult == 1) {
+			System.out.println("Você errou seu ataque! O inimigo não sofreu dano algum.");
+		} else {
+			int deliveredAtk = this.getAtkPoints() + diceResult + this.weapon.getAtkPower();
+			
+			if (diceResult == 20) {
+				damageDealt = defender.takeDamage(deliveredAtk, true);
+				System.out.print("Você acertou um ataque crítico!");
+			} else {
+				damageDealt = defender.takeDamage(deliveredAtk, false);
+			}
+			
+			if (damageDealt < 1) {
+				System.out.println("O inimigo bloqueou seu ataque e não sofreu dano algum!");
+			} else {
+				System.out.printf("Você atacou %s e causou %d de dano no inimigo!%n", this.weapon.getComplement(), damageDealt);
+			}
+		}
+	}	
+}
+

@@ -1,0 +1,17 @@
+package entities;
+
+public class Mage extends CombatClass{
+	
+public Mage(String name, char characterGender, Weapons weapon) {
+		
+        super(CombatClass.MAX_HEALTH, 25, 10, name, characterGender, validateWeapon(weapon));
+    }
+
+//	public static Weapons validateWeapon(Weapons weapon) {
+//        if (weapon != Weapons.STAFF && weapon != Weapons.GRIMOIRE) {
+//            throw new IllegalArgumentException("Um mago só pode usar cajado ou grimório!");
+//        }
+//        return weapon;
+//    }
+	
+}

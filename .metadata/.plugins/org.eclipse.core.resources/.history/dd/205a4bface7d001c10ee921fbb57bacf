@@ -1,0 +1,40 @@
+package entities;
+
+public enum Weapons {
+	SWORD(9, "Espada", "com sua espada"),
+	AXE(10, "Machado", "com seu machado"),
+	HAMMER(10, "Martelo", "com seu martelo"),
+	CLUB(9, "Clava", "com sua clava"),
+	BOW_AND_ARROW(7, "Arco e flecha", "com seu arco, a flecha atingiu"),
+	CROSSBOW(8, "Besta", "com sua besta, o virote atingiu"),
+	STAFF(11, "Cajado", "com seu cajado, lançando uma bola de fogo"),
+	GRIMOIRE(10, "Grimório", "absorvendo energia do livro com uma mão e liberando com a outra"),
+	TRAP(10, "Armadilha", null),
+	DOUBLE_AXE(12, "Machado de lâmina dupla", null);
+	
+	private int atkPower;
+	private String name;
+	private String complement;
+	
+	 Weapons(int atkPower, String name, String complement) {
+		this.atkPower = atkPower;
+		this.name = name;
+		this.complement = complement;
+	}
+
+	public int getAtkPower() {
+		return atkPower;
+	}
+
+	public String getName() {
+		return name;
+	}
+	
+	public String getComplement() {
+		return this.complement;
+	}
+}
+
+
+
+
